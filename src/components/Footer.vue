@@ -10,7 +10,6 @@
     <div class="message-form">
       <input name= "input-form" v-model="inputText"/>
       <button v-on:click="startSpeech">{{ recognitionText }}</button>
-      <p> {{ inputText }}</p>
     </div>
   </div>
 </template>
@@ -40,6 +39,7 @@
       this.recognition.onresult = (event) => {
         if (event.results.length > 0) {
           this.inputText = event.results[0][0].transcript;
+          this.$emit('inputText', this.inputText);
         }
       }
     }

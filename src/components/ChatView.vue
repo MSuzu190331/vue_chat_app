@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header/>
-    <MainPage/>
-    <Footer/>
+    <MainPage v-bind:chatText='chatText'/>
+    <Footer @inputText='inputText'/>
   </div>
 </template>
 
@@ -14,10 +14,20 @@
 
   export default {
     name: 'ChatView',
+    data() {
+      return {
+        chatText: ''
+      }
+    },
     components: {
       Header,
       MainPage,
       Footer
+    },
+    methods: {
+      inputText: function(inputText) {
+        this.chatText=inputText;
+      }
     }
   }
 </script>

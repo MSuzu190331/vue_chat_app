@@ -1,12 +1,18 @@
 <template>
   <div class="main-page">
-    <h2>メイン</h2>
+    <h2>{{ chatText }}</h2>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'MainPage'
+    name: 'MainPage',
+    props: {
+      chatText: { 
+        type: String,
+        default: ''
+      }
+    }
   }
 </script>
 
